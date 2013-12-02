@@ -1,0 +1,25 @@
+{
+  "name": "frametest",
+  "description": "frametest",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "test",
+    "iframe",
+    "automation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jameskyburz/frametest.git"
+  },
+  "author": {
+    "name": "James Kyburz",
+    "email": "james.kyburz@gmail.com"
+  },
+  "dependencies": {
+    "insert-css": "0.0.0"
+  },
+  "devDependencies": {},
+  "license": "MIT"
+}

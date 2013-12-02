@@ -1,0 +1,53 @@
+.log-line {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: bold;
+}
+
+.log-line.success {
+  color: #29EC16;
+}
+
+.log-line.info {
+  color: #CFEDF4;
+}
+
+.log-line.failure {
+  color: #F00;
+}
+
+.box {
+  height: 100%;
+  padding: 10px;
+  width: 46%;
+  border-radius: 28px;
+  -webkit-border-radius: 28px;
+  -moz-border-radius: 28px;
+  -ms-border-radius: 28px;
+  -o-border-radius: 28px;
+  border: solid 8px rgb(41, 236, 22);
+  overflow-y: scroll;
+}
+
+.log-area {
+  float: right;
+  background-color: #202020;
+}
+
+.frame {
+  float: left;
+}
+
+@media (max-width: 900px) {
+  .box.log-area, .box.frame {
+    clear: both;
+    float: left;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+  }
+}
