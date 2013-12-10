@@ -3,7 +3,6 @@ module.exports = function() {
   return function(opt) {
     opt = opt || {};
     var HEIGHT_MARGIN = 40;
-    var SCROLL_POLL = 1500;
 
     context = context || {
       logArea: logArea,
@@ -27,9 +26,8 @@ module.exports = function() {
         insertCss(css);
         body = document.getElementsByTagName('body')[0];
         body.innerHTML = '';
-        logArea = logArea || createLogArea();
-        iframe = iframe || createIframe();
-
+        context.logArea = logArea = logArea || createLogArea();
+        context.iframe = iframe = iframe || createIframe();
         attach(window, 'resize', resizeWindow);
         resizeWindow();
         capture();
@@ -37,7 +35,6 @@ module.exports = function() {
     }
 
     function capture() {
-      context.iframe = iframe;
       iframe.src = opt.testUrl;
     }
 
@@ -75,14 +72,6 @@ module.exports = function() {
     function createLogArea() {
       var area = body.appendChild(document.createElement('div'));
       area.setAttribute('class', 'log-area box');
-      !function scroll() {
-        if ('scrollHeight' in area &&
-            'scrollTop' in area) {
-          area.scrollTop = area.scrollHeight;
-          setTimeout(scroll, SCROLL_POLL);
-        }
-      }();
-
       return body.appendChild(area);
     }
 
