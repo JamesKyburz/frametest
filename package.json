@@ -1,7 +1,7 @@
 {
   "name": "frametest",
   "description": "frametest",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {},
   "keywords": [
@@ -18,7 +18,7 @@
     "email": "james.kyburz@gmail.com"
   },
   "dependencies": {
-    "insert-css": "0.0.0"
+    "insert-css": "git+ssh://git@github.com:JamesKyburz/insert-css.git#ie-love"
   },
   "devDependencies": {},
   "license": "MIT"
