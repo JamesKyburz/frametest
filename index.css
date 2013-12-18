@@ -36,6 +36,7 @@
 
 .frame {
   float: left;
+  overflow: visible;
 }
 
 @media (max-width: 900px) {
