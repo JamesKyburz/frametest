@@ -1,5 +1,5 @@
 module.exports = function() {
-  var iframe, logArea, context;
+  var iframe, logArea, context, body;
   return function(opt) {
     opt = opt || {};
     var HEIGHT_MARGIN = 40;
@@ -13,8 +13,6 @@ module.exports = function() {
       logFailure: log('failure'),
       logInfo: log('info'),
     };
-
-    var body, logArea;
 
     if (iframe) {
       capture();
@@ -54,19 +52,19 @@ module.exports = function() {
     }
 
     function attach(o, name, cb) {
-      o.addEventListener ?
-        o.addEventListener(name, cb, false)
-        :
-        o.attachEvent && o.attachEvent('on' + name, cb)
-      ;
+      if (o.addEventListener) {
+        o.addEventListener(name, cb, false);
+      } else if(o.attachEvent) {
+        o.attachEvent('on' + name, cb);
+      }
     }
 
     function detach(o, name, cb) {
-      o.removeEventListener ?
-        o.removeEventListener(name, cb)
-        :
-        o.detachEvent && o.detachEvent('on' + name, cb)
-      ;
+      if (o.removeEventListener) {
+        o.removeEventListener(name, cb);
+      } else if (o.detachEvent) {
+        o.detachEvent('on' + name, cb);
+      }
     }
 
     function createLogArea() {
