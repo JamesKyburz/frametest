@@ -1,7 +1,7 @@
 {
   "name": "frametest",
   "description": "frametest",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
   "scripts": {},
   "keywords": [
@@ -17,8 +17,15 @@
     "name": "James Kyburz",
     "email": "james.kyburz@gmail.com"
   },
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
+  },
   "dependencies": {
-    "insert-css": "git+ssh://git@github.com:JamesKyburz/insert-css.git#ie-love"
+    "insert-css": "^0.1.1",
+    "brfs": "^1.0.0",
+    "browserify": "^3.33.1"
   },
   "devDependencies": {},
   "license": "MIT"
