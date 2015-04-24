@@ -23,9 +23,8 @@
     ]
   },
   "dependencies": {
-    "insert-css": "^0.1.1",
-    "brfs": "^1.0.0",
-    "browserify": "^3.33.1"
+    "brfs": "^1.2.0",
+    "insert-css": "^0.2.0"
   },
   "devDependencies": {},
   "license": "MIT"
