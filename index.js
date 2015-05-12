@@ -52,6 +52,7 @@ module.exports = function() {
     }
 
     function attach(o, name, cb) {
+      detach(o, name, cb);
       if (o.addEventListener) {
         o.addEventListener(name, cb, false);
       } else if(o.attachEvent) {
