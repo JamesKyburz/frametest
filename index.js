@@ -17,19 +17,21 @@ module.exports = function() {
     if (iframe) {
       capture();
     } else {
-      attach(window, 'load', function load() {
-        var fs = require('fs');
-        var insertCss = require('insert-css');
-        var css = fs.readFileSync(__dirname + '/index.css');
-        insertCss(css);
-        body = document.getElementsByTagName('body')[0];
-        body.innerHTML = '';
-        context.logArea = logArea = logArea || createLogArea();
-        context.iframe = iframe = iframe || createIframe();
-        attach(window, 'resize', resizeWindow);
-        resizeWindow();
-        capture();
-      });
+      attach(window, 'load', windowLoad);
+    }
+
+    function windowLoad() {
+      var fs = require('fs');
+      var insertCss = require('insert-css');
+      var css = fs.readFileSync(__dirname + '/index.css');
+      insertCss(css);
+      body = document.getElementsByTagName('body')[0];
+      body.innerHTML = '';
+      context.logArea = logArea = logArea || createLogArea();
+      context.iframe = iframe = iframe || createIframe();
+      attach(window, 'resize', resizeWindow);
+      resizeWindow();
+      capture();
     }
 
     function capture() {
