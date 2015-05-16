@@ -1,4 +1,6 @@
-module.exports = function() {
+module.exports = frametest;
+
+function frametest() {
   var iframe, logArea, context, body;
   return function(opt) {
     opt = opt || {};
@@ -78,6 +80,7 @@ module.exports = function() {
 
     function createIframe() {
       var f = body.appendChild(document.createElement('iframe'));
+      (opt.onIframeCreate || noopt)(f);
       f.setAttribute('class', 'frame box');
       f.setAttribute('frameborder', '0');
       f.setAttribute('marginwidth', '');
@@ -107,5 +110,7 @@ module.exports = function() {
       iframe.style.height = height + 'px';
       logArea.style.height = height + 'px';
     }
+
+    function noopt() { }
   };
-};
+}
